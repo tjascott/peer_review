@@ -1,0 +1,268 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{parskip}
+
+\begin{document}
+	
+	\begin{center}
+		Comments on manuscript no. FE-26-1523\\[0.75em]
+		
+		{\large \textbf{Flow Performance Enhancement of a Double-Feedback Fluidic Oscillator Using Triangular Rib Parameterization}}\\[0.5em]
+		
+		Liaqat Hussain, Muhammad Mahabat Khan, and Naseem Ahmad
+	\end{center}
+	
+	\section*{Summary}
+	
+	\section*{General Comments}
+	
+	\begin{enumerate}
+		\item The captions for figures and tables should be clear and provide enough information so the reader is not required to refer back to the main body of the text.
+		\item There is a lot of assumed or implied knowledge when reading this manuscript. I have made specific comments in the respective sections.
+		\item The authors appear to make several interpretations that are stated casually when the available evidence presented in the study appears to be lacking. These statements should be qualified or evidence provided to support the claims. I have identified some specific cases in the following specific comments.
+	\end{enumerate}
+	
+	
+	\section*{Specific Comments}
+	
+	\subsection*{Introduction}
+	
+	\begin{enumerate}
+		\item The Introduction is generally well written, with a clear state of the art and research gap. The novelty appears plausible, particularly the triangular-rib parameterization and the separation of fixed-height and fixed-base parameterization strategies. I recommend that the authors state more explicitly what new insights this study presents.
+	\end{enumerate}
+	
+	\subsection*{Section 2.2 -- Triangular Rib Geometry and Case Definitions}
+	
+	\begin{enumerate}
+		\item The authors should include all dimensions for all rib configurations listed in Table~I.
+		\item The authors should reconsider comments like: ``By fixing the base length, this strategy isolates the effect of rib height...". Strictly this is not true as changes in $\alpha$ change the height and the inclination. There are similar comments relating to both families which should be clarified throughout the manuscript.
+	\end{enumerate}
+	
+	\subsection*{Section 3.1 -- Governing Equations}
+	
+	\begin{enumerate}
+		\item The manuscript refers to Oz and Kara [35] for the detailed Favre formulation, but Oz and Kara itself refers to more fundamental sources. The authors should cite the original sources for the Favre-averaged compressible RANS formulation directly rather than relying on an intermediate paper.
+		
+		\item The justification for the 2D approach should be strengthened. The authors should briefly explain the basis of Kruger et al.'s conclusion and detail the limitations associated with neglecting spanwise flow details in the context of this parameterization. This is important as it is noted that Kruger et al.'s study appears to be based on an incompressible model using water as the fluid, which is different to the present study.
+	\end{enumerate}
+	
+	\subsubsection*{Section 3.1.2 -- Momentum Equation}
+	
+	\begin{enumerate}
+		\item The authors should check the formulation and viscosity notation in Eq.~(2). If $\nu$ denotes kinematic viscosity, I believe the term,  $2\nu S_{ij}$, will have units of $\mathrm{m^2/s^2}$, whereas $\rho u_i''u_j''$ has units of Pa. Using dynamic viscosity $\mu$ in the first term gives $2\mu S_{ij}$ units of Pa and restores dimensional consistency. The accompanying viscosity definitions in the text following Eq.~(2) should be checked and corrected as required.
+		
+		\item In the Sutherland expression, the authors use $\mu_T$ for the temperature-dependent molecular dynamic viscosity. This may be confused with the conventional turbulent or eddy viscosity $\mu_t$ used later in the SST formulation. The authors should consider using $\mu(T)$ to identify the dynamic molecular viscosity as a function of temperature for readability.
+	\end{enumerate}
+	
+	
+	\subsubsection*{Section 3.1.3 -- Energy Equation}
+	
+	\begin{enumerate}
+		\item The authors should check Eq.~(4) against Oz and Kara [35]. In particular, $\overline{u}_j$ may indicate a Reynolds mean where the Favre-averaged velocity $\widetilde{u}_j$ is intended. The sign of the conductive heat-flux term should also be checked against the cited formulation. If the viscosity inconsistency in Eq.~(2) is confirmed, the same issue propagates into Eq.~(4) and should also be checked.
+		
+		\item Not all terms in Eq.~(4) are defined when they are introduced. Some symbols also overlap with later notation. Since the authors state that internal energy and enthalpy are Favre averaged, the definitions of $\widetilde{e}$ and $\widetilde{h}$ should explicitly identify these as the Favre-averaged specific internal energy and specific enthalpy.
+	\end{enumerate}
+	
+	
+	\subsection*{Section 3.2 -- Turbulence Model}
+	
+	\begin{enumerate}
+		\item The statement that $y^+<0.2$ is maintained ``throughout the computational domain'' should be revised, as $y^+$ is a wall quantity. The authors should report the actual $y^+$ range over the oscillator walls, i.e., the minimum and maximum values, and provide justification for selecting $y^+<0.2$ as the wall-resolution criterion. For example, was this based on internal sensitivity testing or prior literature.
+	\end{enumerate}
+	
+	
+	\subsection*{Section 3.3 -- Numerical Schemes and Boundary Conditions}
+	
+	\begin{enumerate}
+		\item The details of the boundary-conditions are distributed across the manuscript. The outlet and wall boundary conditions are described in Section~2.1, whereas the inlet conditions are given in Section~3.3, titled ``Numerical Schemes and Boundary Conditions.'' For readability and reproducibility, the complete set of boundary conditions should be detailed in one location. At a minimum, the treatment of velocity, pressure, and temperature should be clearly specified at each boundary, including the corresponding imposed values where applicable. In particular, although a Reynolds number of $Re=114{,}600$ is defined, it is not clear what boundary conditions establish this condition, or whether the same Reynolds number or the same imposed pressure conditions are maintained across different configurations. The authors should also, where applicable, distinguish between total and static pressure, and between absolute and gauge pressure. 
+		\item The discussion of the initial $10^4$ time steps used to establish periodic behaviour and the subsequent sampling interval would fit more naturally with the temporal convergence and sampling discussion in the following section.
+		\item Is the kinematic viscosity $\nu$ used in the Reynolds-number definition the same as the temperature-dependent kinematic viscosity $\nu_T$ defined previously in Section~3.1.2? This should be clarified and updated if applicable.
+	\end{enumerate}
+	
+	
+	\subsection*{Section 3.4 -- Temporal Convergence Analysis}
+	
+	\begin{enumerate}
+		\item The in-text table reference number is missing.
+		
+		\item It should also be stated which geometric configuration is used for the temporal convergence study. This is unclear.
+		
+		\item It appears that $5~\mu\mathrm{s}$ is used as the reference timestep in Table~II, as no percentage change is reported for this case while changes are reported for the other timestep sizes. This should be clarified.
+		
+		\item There is a discrepancy between the text and Table~II; the text reports a $0.003\%$ change between the $5.0$ and $2.5~\mu\mathrm{s}$ cases, whereas Table~II reports $0.002\%$. This should be checked and corrected.
+		
+		\item The authors should define how the percentage change reported in Table~II is calculated. Although this may be obvious, it is important that the calculation is defined rather than leaving the reader to guess.
+		
+		\item Plotting the predicted frequency, or another appropriate measure of solution error, as a function of timestep size would make the convergence behaviour clearer and provide additional support for the authors' claim.
+		
+		\item It is unclear what the second column of Table~II, ``Time Interval for Data Saving (ms),'' represents. This should be clarified.
+		
+		\item The caption for Table~II should more clearly describe the quantities being compared and the purpose of the table, without requiring the reader to refer to the main text.
+		
+		\item The statement that the ``numerical solution is temporally converged'' is presently based only on the oscillation frequency. The authors should either revise the statement to make clear that convergence has been demonstrated specifically for the predicted oscillation frequency, or strengthen the assessment by examining an additional quantity, for example an integral quantity such as mass flow rate, if they are to claim the solution is converged.
+	\end{enumerate}
+	
+	
+	\subsection*{Section 3.5.1 -- Mesh Independence}
+	
+	\begin{enumerate}
+		\item The authors state that the number associated with $N$ is a subscript. If so, the mesh notation should be typeset consistently as $N_{20}$, $N_{40}$, $N_{60}$, and $N_{80}$. Alternatively, the terminology should be revised if $N20$, $N40$, etc., are intended simply as mesh labels.
+		
+		\item It looks like the spheres of influence are shown in panel~(a) of Figure~3. If the authors are going to refer to these in the text, they should mark them explicitly in the image so the reader does not have to guess.
+		
+		\item The wording suggests that the outer regions retain $D/5$ and $D/2.5$ element sizes while only the innermost region changes between $D/20$, $D/40$, $D/60$, and $D/80$. This may be entirely appropriate, but the authors should clearly describe which element size corresponds to each sphere or region and explain why refinement is restricted to the inner region only.
+		
+		\item The authors should provide details of the mesh-independence study, including the geometry and flow conditions that were examined.
+		
+		\item The sampling location $6~\mathrm{mm}$ downstream of the nozzle exit should be identified in Figure~3. The authors should also state here that velocity magnitude is sampled, consistent with the later description in Section~3.6, or provide an appropriate cross-reference.
+		
+		\item From the frequency alone, the authors could conclude that oscillation frequency becomes insensitive to further mesh refinement, but stating that the coarse mesh ``is unable to fully resolve the flow structures'' and that the ``numerical solution has essentially reached mesh independence'' is broader than the evidence given. Either those claims should be narrowed to frequency independence, or an additional global quantity or flow feature should be compared across the meshes to confirm that the flow structures are actually resolved. A sound approach might be to measure another parameter that is assessed as part of the results later in the manuscript.
+		
+		\item The authors should define how the percentage difference/error in Table~III is calculated so that the reader is not left to infer the calculation.
+		
+		\item The in-text table reference number is missing.
+		
+		\item The table should detail the element count for each of the meshes.
+		
+		\item Figure~3 calls panel~(b) a structured hexahedral mesh. This terminology should be checked. For a 2D geometry, I believe this would normally be described as a quadrilateral mesh.
+	\end{enumerate}
+	
+	
+	\subsection*{Section 3.5.2 -- Model Validation}
+	
+	\begin{enumerate}
+		\item The in-text table reference number is missing.
+		
+		\item The validation configuration should be identified explicitly. The authors state that the comparison is performed for the ``same oscillator geometry,'' but it is not clear whether this refers to the smooth configuration, a separate validation geometry, or what Reynolds number or flow condition is used. Furthermore, the frequency reported in the validation is $355~\mathrm{Hz}$, whereas the temporal and mesh studies report approximately $425~\mathrm{Hz}$. This may not indicate an issue, but the configuration and flow conditions examined for each study should be reported.
+		
+		\item Validation based only on oscillation frequency, again, appears too limited to support the broader statement that the numerical methodology is reliable and accurate. Frequency validates one important global response, but not necessarily all features of the flow field. The authors should either temper the claim to state that the methodology accurately predicts oscillation frequency, or strengthen the validation by including comparison with another quantity or flow feature available from the literature.
+		
+		\item The error-assessment method should also be defined. It appears that the experimental result of Slupski et al.~[41] is used as the reference for the error calculations, but this should be stated.
+	\end{enumerate}
+	
+	
+	\subsection*{Section 3.6 -- Performance Evaluation Parameters}
+	
+	\begin{enumerate}
+		\item The oscillation frequency is determined directly from the period of the velocity signal rather than from spectral analysis. This approach may be appropriate for a strongly periodic signal, but the reason for selecting this method instead of, or in addition to, an FFT should be explained. 
+		
+		\item The statement that one complete oscillation period is determined from the ``alternating extrema'' of the velocity-magnitude signal is unclear. The authors should clarify how the period $T$ is identified and how they establish that the selected interval corresponds to one complete physical oscillation cycle. This could be shown by illustrating an example velocity-time history with the identified period. This would make the explanation much clearer.
+		
+		\item The performance parameters and their measurement locations should, where applicable, be illustrated schematically. For example, $x$, $y$, the jet half-width $\delta$, jet deflection angle $\theta$, and relevant sampling locations could be shown on a diagram. This would make the definition associated with Eq.~(6) considerably easier to interpret, as it is somewhat ambiguous without this.
+		
+		\item The physical interpretation of the ``jet deflection angle'' in Eq.~(6) should be clarified. The angle is calculated from a jet half-width defined using the time-averaged velocity magnitude at $x=3D$. The meaning of ``maximum centerline velocity'' in this definition should also be stated explicitly.
+		
+		\item The quantities appearing in Eqs.~(7)--(9) are eventually defined after Eq.~(9), but introducing the notation when it first appears would improve readability. More importantly, the methodology used to obtain the pressure drop $\Delta p$ should be stated explicitly, including the pressure type, averaging procedure, and measurement locations. This is particularly important because $\Delta p$ is used directly in the FPR, JDPR, and FDPR performance measures.
+		
+		\item The authors should comment on the $1/3$ exponent applied to the pressure-drop ratio in the FPR, JDPR, and FDPR definitions and provide the rationale for this. Although these formulations are referenced to the authors' previous study [32], that study appears to employ the same exponent without explaining its physical or mathematical basis. Is this scaling standard for fluidic oscillator performance assessment? If so, additional detail should be provided.
+		
+		\item $V_{\mathrm{exit}}$ is defined as the time-averaged velocity at the exit-nozzle throat, but the precise quantity should be specified. Is this an area-averaged velocity, centreline velocity, velocity magnitude, streamwise velocity component, etc.?
+	\end{enumerate}
+	
+	\subsection*{Section 4 -- Results and Discussion}
+	\begin{enumerate}
+		\item The opening paragraph of Section 4 states that oscillation frequency, jet deflection angle, and pressure drop are examined to assess flow performance. However, Section 3.6 also defines FPR, JDPR, FDPR, and the Strouhal number as performance evaluation parameters, all of which are subsequently presented in the Results. The opening statement could therefore be reworded to clarify the distinction between the primary quantities obtained from the simulations and the derived performance measures calculated from these quantities.
+		\item The statement ``The oscillation frequency governs the temporal uniformity and intensity of jet sweeping'' should be clarified or reconsidered. These quantities, ``uniformity'' and ``intensity,'' do not appear to be used elsewhere in the manuscript, and it is not really clear what is meant by ``uniformity'' and ``intensity'' in the context of how they relate to the oscillation frequency of the jet sweeping.
+	\end{enumerate}
+	
+	\subsection*{Section 4.1 -- Effects of Triangular Rib Geometry on Internal Flow Dynamics}
+	
+	\begin{enumerate}
+		
+		\item ``Asymmetric pressure distribution along the walls'' presumably refers to a pressure difference between the two opposing Coanda surfaces/walls of the mixing chamber. This should be made clear.
+		
+		\item ``As the jet advances toward the wall'' presumably refers to the primary jet moving toward one of the Coanda surfaces within the mixing chamber. This should be stated more explicitly.
+		
+		\item The sentence ``A fraction of the jet simultaneously enters the feedback channel, where it propagates back towards the main jet entering the mixing chamber from the inlet. This jet progressively pushes the jet until it attaches to the opposite wall...'' is awkward because ``jet'' is used to refer to both the primary jet and the feedback flow. The distinction between these two flows should be made clearer to improve readability.
+		
+		\item The authors state that $\Phi=0^\circ$ corresponds to complete jet attachment to one Coanda surface, but the criterion used to identify this reference phase from the transient solution is not clear. Please clarify how $\Phi=0^\circ$ is determined for each configuration.
+		
+		\item The introductory paragraph of Section~4.1 states that the recirculation bubble evolution is examined using ``streamline, pressure contour, and vorticity magnitude plots.'' However, Figures~4--9 present velocity magnitude, pressure, and vorticity magnitude contours, respectively. This terminology should be made consistent.
+		
+		\item The statement ``The feedback flow must overcome this adhesion before switching can occur'' should be clarified. The authors should specify where and how the feedback flow acts on the primary jet to overcome the Coanda attachment and initiate switching.
+		
+		\item The axes in Figure~4 should be clearly defined, including the coordinate directions and units. More generally, figure and table captions should provide sufficient information for the corresponding figure or table to be interpreted without relying excessively on the main text.
+		
+		\item The authors should consider including the oscillation frequency associated with each configuration shown in Figure~4, either in the figure or its caption. This would help relate the instantaneous flow fields and phase angles to the different oscillation periods of each configuration.
+		
+		\item The authors could consider presenting the streamwise velocity component, or alternatively velocity vectors or another representation that clearly indicates flow direction, in addition to or instead of velocity magnitude. This would make the direction of the primary and recirculating flows clearer at each phase angle.
+		
+		\item The terminology used for $\alpha$ should be made consistent throughout the manuscript. It is defined in Section~2.2 as the ``half-apex angle,'' but is also referred to elsewhere simply as the ``apex angle.'' The same terminology should be used consistently.
+		
+		\item The statements that the jet ``stays attached to the Coanda surface for a longer time'' and that the recirculation bubble ``re-establishes itself over a larger portion of the cycle'' imply a temporal assessment of the flow behaviour. It is not clear that these conclusions can be established from the five instantaneous phase snapshots presented in Figure~4 alone. The authors should clarify the basis for these statements or revise the wording accordingly.
+		
+		\item Figures~6 and~7 both appear to present instantaneous pressure contours, but only Figure~7 is described explicitly as ``instantaneous.'' The terminology should be made consistent. In addition, the statement that ``slight local variations'' occur near the rib surfaces should specify that these are variations in pressure.
+		
+		\item The authors state that the reduced low-pressure zones in Figure~7 indicate that the triangular ribs suppress the extent of the large separation zone over the Coanda surfaces. It is not clear that suppression of the separation zone can be inferred from the pressure contours alone. This interpretation should be supported by corresponding evidence from the velocity and/or vorticity fields.
+		
+		\item In general, statements such as ``This further confirms...'' should clearly identify the earlier result or observation being referred to.
+		
+		\item I think that some of the interpretation of Figure~9 could be clarified. In the smooth case, the statement that the two high-vorticity shear layers ``enclose'' the low-vorticity recirculation region is not immediately apparent, since these shear layers appear to me to primarily bound the primary jet. Similarly, the ribbed cases appear to produce a more spatially distributed, rather than necessarily more uniform, vorticity field. The statement that the high-vorticity shear layers occupy a larger portion of the mixing chamber at $\Phi=90^\circ$--$180^\circ$ should also be reconsidered or clarified, since some of the additional high-vorticity regions appear to be associated with the ribs and Coanda surfaces rather than the primary-jet shear layers.
+		
+		\item The statement that the vorticity distribution is ``consistent with the enhanced mixing characteristics and the faster jet switching'' should be clarified. A more spatially distributed vorticity field may be qualitatively consistent with increased mixing, but enhanced mixing does not appear to be quantified in the present study. Faster jet switching could be linked explicitly to the corresponding oscillation-frequency results rather than inferred from the vorticity contours alone.
+	\end{enumerate}
+	
+	\subsection*{Section 4.2 -- Oscillation Frequency and Frequency-Pressure Ratio}
+	
+	\begin{enumerate}
+		\item The statement that ``rib height therefore emerges as the dominant geometric parameter governing oscillation frequency'' appears broader than what is demonstrated. The results indicate that the oscillation frequency is more sensitive to geometry changes in the FB family. As already commented previously, the parameterization doesn't independently change rib height, while the other parameters are held constant. This conclusion should be qualified.
+		
+		\item The data used to calculate the FPR should be reported more transparently. The authors should consider providing a table for the smooth and all ribbed configurations containing the oscillation frequency, the pressure quantities used to determine $\Delta p$, the resulting pressure drop, and the calculated FPR. This would allow the reported FPR values to be readily verified. The caption of Figure~11 should also provide sufficient information to interpret the quantity independently of the main text, including an explicit reference to the FPR definition in Eq.~(7).
+	\end{enumerate}
+	
+	\subsection*{Section 4.3 -- Primary Recirculation Bubble Analysis}
+	
+	\begin{enumerate}
+		\item The definition of the primary recirculation bubble should be introduced in Section~4.1 when it is first discussed in the Results, or alternatively Section~4.1 should provide a forward reference to the definition given in Section~4.3.
+		\item Terminology should be used consistently throughout the Results. For example, ``oscillation frequency'' and ``frequency'' are used interchangeably when referring to the same quantity. 
+		\item The statement that the FB results demonstrate ``greater sensitivity of the flow dynamics to geometric variations when the rib height changes simultaneously'' is somewhat broad. The authors should state more specifically that the recirculation-bubble area and oscillation frequency show greater sensitivity in the FB family, where changes in apex angle are accompanied by changes in rib height.
+		
+		\item The authors should be careful with their interpretation of the results shown in Figure~14. The results suggest an inverse association between recirculation-bubble area and oscillation frequency for the configurations examined. Statements such as ``This behavior suggests that once the recirculation bubble is sufficiently suppressed, further reductions in its size provide only limited additional enhancement in oscillation frequency'' should acknowledge that this conclusion is based on the limited parameter space investigated.
+		
+		\item Considering the significance of the features of the recirculation bubble on the dynamics of the oscillator it is surprising that the measurement technique assumes an ellipse calculated from the maximum height and length. The authors should justify the use of this approach and give an error estimation associated with it.
+	\end{enumerate}
+	
+	\subsection*{Section 4.4 -- Pressure Drop and Strouhal Number}
+	
+	\begin{enumerate}
+		\item There appear to be inconsistencies between the explanation of the FB pressure-drop trend in Section~4.4 and the earlier discussion in Section~4.1. In Section~4.4, the authors state that the progressive reduction in pressure drop is associated with ``increasingly early jet detachment from the Coanda surface as rib height grows with apex angle in the FB family.'' However, Section~4.1 states that, as $\alpha$ increases from $30^\circ$ to $45^\circ$ and $60^\circ$ in the FB family, the rib height progressively decreases. Section~4.1 also states that these shorter ribs produce weaker jet deflection, less pronounced periodic detachment, and allow the jet to remain attached to the Coanda surface for longer. These descriptions appear contradictory and should be clarified.
+		
+		\item Why did the terminology for the fixed-height and fixed-base families change from FH and FB to H and B? The terminology for the two parameterization families should be kept consistent. The manuscript appears to use fixed-height (FH) and fixed-base (FB) everywhere else. This is particularly confusing because $H$ and $B$ are already allocated to denote the rib height and base dimensions, respectively. 
+		
+		\item The significance of presenting the Strouhal number in addition to the oscillation frequency should be discussed further. The characteristic length $D$ appears to be identical for all configurations ($D=6.35~\mathrm{mm}$), and the authors note that the Strouhal-number trend closely follows the oscillation-frequency trend. It is therefore not clear what additional information this non-dimensionalization provides for the present comparison, particularly since there do not appear to be any comparisons of Strouhal number with previous studies. Furthermore, the statement that this reflects a ``direct proportionality'' between Strouhal number and oscillation frequency is only strictly valid if $V_{\mathrm{exit}}$ is also constant. The authors should report the values of $V_{\mathrm{exit}}$ for all configurations and clarify the purpose of the Strouhal-number comparison.
+	\end{enumerate}
+	
+	\subsection*{Section 4.5 -- Jet Deflection Angle and Jet Deflection-Pressure Ratio}
+	
+	\begin{enumerate}
+		\item The authors claim that ``...the exit jet deflection is governed by the cumulative unsteady jet dynamics over an oscillation cycle rather than by a single instantaneous flow characteristic.'' This may be the case, but the claim does not appear to be supported by evidence presented in the study. The authors should clarify the basis for this interpretation or qualify the statement appropriately.
+		
+		\item The interpretation of the JDPR values could be clearer. The Smooth reference configuration is $\mathrm{JDPR}=1$. The authors should comment on the relevance of values above and below unity with regards to performance.
+	\end{enumerate}
+	
+	\subsection*{Section 4.6 -- Combined Performance: Frequency-Deflection-Pressure Ratio}
+	
+	\begin{enumerate}
+		\item The statement that Tri30B-Ribs achieves ``simultaneous improvements in oscillation frequency, jet deflection, and pressure efficiency'' does not appear to be correct. The reported jet deflection angle is $31.6^\circ$, compared with $32.0^\circ$ for the Smooth configuration. The jet deflection is therefore approximately preserved rather than improved. 
+	\end{enumerate}
+	
+	\subsection*{Section 4.7 -- Engineering Significance of Triangular Rib Parameterization}
+	
+	\begin{enumerate}
+		\item Again, the authors should comment on the significance of the $1/3$ exponent weighting in the FDPR definition and how this may impact the resulting performance assessment.
+		
+		\item The authors state that for the FH family: ``...relatively small variation in oscillation frequency, Strouhal number, recirculation bubble size, and FDPR within this family indicates that the oscillatory behavior is largely insensitive to apex angle when the rib height is maintained constant. From an engineering perspective, this reduced sensitivity is advantageous because small geometric deviations arising from manufacturing tolerances are unlikely to cause significant variations in oscillator performance.". Comments like these should be framed as a potential benefit, this has not been tested.
+	\end{enumerate}
+	
+	\subsection*{Section 5 -- Conclusions}
+	
+	\begin{enumerate}
+		\item I think it is more accurate to say: The numerical results demonstrate that triangular rib parameterization can enhance selected flow-performance characteristics of the fluidic oscillator. Rather than``The numerical results demonstrate that triangular rib parameterization significantly enhanced the flow performance of the fluidic oscillator.''. Based on the combined performance metric proposed, only one geometry was found to be an improvement on the baseline overall.
+		
+		\item The statement that rib height is the dominant geometric parameter governing the oscillation characteristics is, in my opinion, broader than what is demonstrated in the study. The results support rib height being a dominant parameter among the configurations tested. However, as stated previously, this parameter is not isolated as changes in $\alpha$ occur too. The statement should therefore be qualified appropriately.
+	\end{enumerate}
+	
+\end{document}
