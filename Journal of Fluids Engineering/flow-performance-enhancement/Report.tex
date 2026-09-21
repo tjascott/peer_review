@@ -17,21 +17,22 @@
 	
 	\section*{Summary}
 	
-	\section*{General Comments}
+	The manuscript presents a numerical characterization study of a fluidic oscillator based on two families of triangular ribs; fixed base and fixed height. The study appears to be an extension of previous characterization work in this area. The work is interesting and the results are potentially useful from an engineering perspective. I have summarized the areas where I believe the manuscript should be strengthened, as follows:
 	
 	\begin{enumerate}
-		\item The captions for figures and tables should be clear and provide enough information so the reader is not required to refer back to the main body of the text.
-		\item There is a lot of assumed or implied knowledge when reading this manuscript. I have made specific comments in the respective sections.
-		\item The authors appear to make several interpretations that are stated casually when the available evidence presented in the study appears to be lacking. These statements should be qualified or evidence provided to support the claims. I have identified some specific cases in the following specific comments.
+		\item The authors, in my opinion, make several interpretations that are stated more strongly than what is supported by the evidence presented. This is applicable to both the validation of the model and the interpretation of the results. These statements should be qualified, or evidence provided to support these claims. I have identified specific examples in the next section.
+		\item There appears to be assumed, or some implied, knowledge when reading the manuscript. When concepts are introduced they are not always completely explained or illustrated. I have made specific comments in the next section.
+		\item Figure and table captions should provide all information necessary for the reader to interpret the results without needing to refer back to the main text. This would also improve the readability of the manuscript. I have noted some examples in the next section.
 	\end{enumerate}
-	
 	
 	\section*{Specific Comments}
 	
-	\subsection*{Introduction}
+	I have made comments specific to each section with the intention of improving the standard of the manuscript; the robustness of the claims; and the overall readability. I have tried to articulate clearly what I believe needs to be done to do this.
+	
+	\subsection*{Section 1 -- Introduction}
 	
 	\begin{enumerate}
-		\item The Introduction is generally well written, with a clear state of the art and research gap. The novelty appears plausible, particularly the triangular-rib parameterization and the separation of fixed-height and fixed-base parameterization strategies. I recommend that the authors state more explicitly what new insights this study presents.
+		\item The Introduction is generally well written, with a clear state of the art and research gap. The novelty appears plausible, particularly the triangular-rib parameterization and the use of fixed height and fixed base parameterization strategies. I recommend that the authors state more explicitly what new insights this study presents and how it is novel with respect to their previous work.
 	\end{enumerate}
 	
 	\subsection*{Section 2.2 -- Triangular Rib Geometry and Case Definitions}
@@ -61,16 +62,16 @@
 	\subsubsection*{Section 3.1.3 -- Energy Equation}
 	
 	\begin{enumerate}
-		\item The authors should check Eq.~(4) against Oz and Kara [35]. In particular, $\overline{u}_j$ may indicate a Reynolds mean where the Favre-averaged velocity $\widetilde{u}_j$ is intended. The sign of the conductive heat-flux term should also be checked against the cited formulation. If the viscosity inconsistency in Eq.~(2) is confirmed, the same issue propagates into Eq.~(4) and should also be checked.
+		\item The authors should check Eq.~(4) against Oz and Kara [35]. In particular, $\overline{u}_j$ may indicate a Reynolds mean where the Favre-averaged velocity $\widetilde{u}_j$ is intended. The sign of the conductive heat-flux term should also be checked against the cited formulation. If the viscosity inconsistency in Eq.~(2) is confirmed, I believe the same issue propagates into Eq.~(4) and should also be checked.
 		
-		\item Not all terms in Eq.~(4) are defined when they are introduced. Some symbols also overlap with later notation. Since the authors state that internal energy and enthalpy are Favre averaged, the definitions of $\widetilde{e}$ and $\widetilde{h}$ should explicitly identify these as the Favre-averaged specific internal energy and specific enthalpy.
+		\item Not all terms in Eq.~(4) appear to be defined when they are introduced. Some symbols also overlap with later notation. If the authors state that internal energy and enthalpy are Favre averaged, the definitions of $\widetilde{e}$ and $\widetilde{h}$ should explicitly identify these as the Favre-averaged specific internal energy and specific enthalpy.
 	\end{enumerate}
 	
 	
 	\subsection*{Section 3.2 -- Turbulence Model}
 	
 	\begin{enumerate}
-		\item The statement that $y^+<0.2$ is maintained ``throughout the computational domain'' should be revised, as $y^+$ is a wall quantity. The authors should report the actual $y^+$ range over the oscillator walls, i.e., the minimum and maximum values, and provide justification for selecting $y^+<0.2$ as the wall-resolution criterion. For example, was this based on internal sensitivity testing or prior literature.
+		\item The statement that $y^+<0.2$ is maintained ``throughout the computational domain'' should be revised, as $y^+$ is a wall quantity. The authors should report the actual $y^+$ range over the oscillator walls, i.e., the minimum and maximum values, and provide justification for selecting $y^+<0.2$ as the wall-resolution criterion. For example, was this based on internal sensitivity testing or prior literature?
 	\end{enumerate}
 	
 	
@@ -184,9 +185,9 @@
 		
 		\item The statement ``The feedback flow must overcome this adhesion before switching can occur'' should be clarified. The authors should specify where and how the feedback flow acts on the primary jet to overcome the Coanda attachment and initiate switching.
 		
-		\item The axes in Figure~4 should be clearly defined, including the coordinate directions and units. More generally, figure and table captions should provide sufficient information for the corresponding figure or table to be interpreted without relying excessively on the main text.
+		\item The axes in Figure~4 should be clearly defined, including the coordinate directions and units. More generally, figure and table captions should provide sufficient information for the corresponding figure or table to be interpreted without relying on the main text.
 		
-		\item The authors should consider including the oscillation frequency associated with each configuration shown in Figure~4, either in the figure or its caption. This would help relate the instantaneous flow fields and phase angles to the different oscillation periods of each configuration.
+		\item The authors should consider including the oscillation frequency associated with each configuration shown in Figures~4-9, either in the figure or its caption. 
 		
 		\item The authors could consider presenting the streamwise velocity component, or alternatively velocity vectors or another representation that clearly indicates flow direction, in addition to or instead of velocity magnitude. This would make the direction of the primary and recirculating flows clearer at each phase angle.
 		
@@ -196,7 +197,7 @@
 		
 		\item Figures~6 and~7 both appear to present instantaneous pressure contours, but only Figure~7 is described explicitly as ``instantaneous.'' The terminology should be made consistent. In addition, the statement that ``slight local variations'' occur near the rib surfaces should specify that these are variations in pressure.
 		
-		\item The authors state that the reduced low-pressure zones in Figure~7 indicate that the triangular ribs suppress the extent of the large separation zone over the Coanda surfaces. It is not clear that suppression of the separation zone can be inferred from the pressure contours alone. This interpretation should be supported by corresponding evidence from the velocity and/or vorticity fields.
+		\item The authors state that the reduced low-pressure zones in Figure~7 indicate that the triangular ribs suppress the extent of the large separation zone over the Coanda surfaces. It is not clear that suppression of the separation zone can be inferred from the pressure contours alone. This interpretation should be supported by corresponding evidence from the velocity and/or vorticity fields if applicable.
 		
 		\item In general, statements such as ``This further confirms...'' should clearly identify the earlier result or observation being referred to.
 		
@@ -208,7 +209,7 @@
 	\subsection*{Section 4.2 -- Oscillation Frequency and Frequency-Pressure Ratio}
 	
 	\begin{enumerate}
-		\item The statement that ``rib height therefore emerges as the dominant geometric parameter governing oscillation frequency'' appears broader than what is demonstrated. The results indicate that the oscillation frequency is more sensitive to geometry changes in the FB family. As already commented previously, the parameterization doesn't independently change rib height, while the other parameters are held constant. This conclusion should be qualified.
+		\item The statement that ``rib height therefore emerges as the dominant geometric parameter governing oscillation frequency'' appears broader than what is demonstrated. The results indicate that the oscillation frequency is more sensitive to geometry changes in the FB family. As already commented previously, the parameterization doesn't independently change rib height while holding the other geometric parameters constant. This conclusion should be qualified.
 		
 		\item The data used to calculate the FPR should be reported more transparently. The authors should consider providing a table for the smooth and all ribbed configurations containing the oscillation frequency, the pressure quantities used to determine $\Delta p$, the resulting pressure drop, and the calculated FPR. This would allow the reported FPR values to be readily verified. The caption of Figure~11 should also provide sufficient information to interpret the quantity independently of the main text, including an explicit reference to the FPR definition in Eq.~(7).
 	\end{enumerate}
@@ -254,15 +255,15 @@
 	\begin{enumerate}
 		\item Again, the authors should comment on the significance of the $1/3$ exponent weighting in the FDPR definition and how this may impact the resulting performance assessment.
 		
-		\item The authors state that for the FH family: ``...relatively small variation in oscillation frequency, Strouhal number, recirculation bubble size, and FDPR within this family indicates that the oscillatory behavior is largely insensitive to apex angle when the rib height is maintained constant. From an engineering perspective, this reduced sensitivity is advantageous because small geometric deviations arising from manufacturing tolerances are unlikely to cause significant variations in oscillator performance.". Comments like these should be framed as a potential benefit, this has not been tested.
+		\item The authors state that for the FH family: ``...relatively small variation in oscillation frequency, Strouhal number, recirculation bubble size, and FDPR within this family indicates that the oscillatory behavior is largely insensitive to apex angle when the rib height is maintained constant. From an engineering perspective, this reduced sensitivity is advantageous because small geometric deviations arising from manufacturing tolerances are unlikely to cause significant variations in oscillator performance." Comments like these should be framed as a potential benefit, as this has not been tested.
 	\end{enumerate}
 	
 	\subsection*{Section 5 -- Conclusions}
 	
 	\begin{enumerate}
-		\item I think it is more accurate to say: The numerical results demonstrate that triangular rib parameterization can enhance selected flow-performance characteristics of the fluidic oscillator. Rather than``The numerical results demonstrate that triangular rib parameterization significantly enhanced the flow performance of the fluidic oscillator.''. Based on the combined performance metric proposed, only one geometry was found to be an improvement on the baseline overall.
+		\item I think it would be more accurate to say: The numerical results demonstrate that triangular rib parameterization can enhance selected flow-performance characteristics of the fluidic oscillator, rather than ``The numerical results demonstrate that triangular rib parameterization significantly enhanced the flow performance of the fluidic oscillator.'' Based on the combined performance metric proposed, only one ribbed geometry was found to be an improvement on the baseline overall.
 		
-		\item The statement that rib height is the dominant geometric parameter governing the oscillation characteristics is, in my opinion, broader than what is demonstrated in the study. The results support rib height being a dominant parameter among the configurations tested. However, as stated previously, this parameter is not isolated as changes in $\alpha$ occur too. The statement should therefore be qualified appropriately.
+		\item The statement that rib height is the dominant geometric parameter governing the oscillation characteristics is, in my opinion, broader than what is demonstrated in the study. The results suggest that rib height may be an important parameter among the configurations tested. However, as stated previously, changes to this parameter are not isolated as changes in $\alpha$ occur simultaneously. The statement should therefore be qualified appropriately.
 	\end{enumerate}
 	
 \end{document}
